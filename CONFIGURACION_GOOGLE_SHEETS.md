@@ -43,9 +43,12 @@ function doPost(e) {
       sheet.getRange("A1:I1").setFontWeight("bold").setBackground("#f3f3f3");
     }
     
+    // Obtener la fecha y hora formateada en la zona horaria de España (Madrid)
+    var fechaLocal = Utilities.formatDate(new Date(), "Europe/Madrid", "dd/MM/yyyy HH:mm:ss");
+    
     // Insertar los datos del candidato en una nueva fila
     sheet.appendRow([
-      data.timestamp || new Date().toISOString(),
+      fechaLocal,
       data.nombre || "",
       data.telefono || "",
       data.email || "",
