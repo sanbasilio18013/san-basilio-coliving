@@ -269,6 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Validaciones básicas extras
       const nombre = document.getElementById('nombre').value.trim();
       const telefono = document.getElementById('telefono').value.trim();
+      const email = document.getElementById('email') ? document.getElementById('email').value.trim() : '';
       const habitacion = document.getElementById('habitacion').value;
       const estudios = document.getElementById('estudios').value;
       const solvencia = document.getElementById('solvencia').value;
@@ -277,8 +278,22 @@ document.addEventListener('DOMContentLoaded', () => {
       const privacidad = document.getElementById('privacidad').checked;
       const ano_curso = anoCursoSelect ? anoCursoSelect.value : '';
 
-      if (!nombre || !telefono || !habitacion || !estudios || !solvencia || !meses_alquiler || !normas || !privacidad) {
+      if (!nombre || !telefono || !email || !habitacion || !estudios || !solvencia || !meses_alquiler || !normas || !privacidad) {
         showFormError("Por favor, rellene todos los campos obligatorios, acepte las normas de convivencia y la política de privacidad.");
+        return;
+      }
+
+      // Validar formato y longitud del número de teléfono (entre 9 y 15 dígitos)
+      const cleanPhone = telefono.replace(/\D/g, ''); // Quedarse solo con dígitos
+      if (cleanPhone.length < 9 || cleanPhone.length > 15) {
+        showFormError("Por favor, introduce un número de WhatsApp válido (entre 9 y 15 dígitos).");
+        return;
+      }
+
+      // Validar formato básico de correo electrónico
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        showFormError("Por favor, introduce un correo electrónico válido.");
         return;
       }
 

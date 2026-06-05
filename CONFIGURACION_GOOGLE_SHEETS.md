@@ -31,6 +31,7 @@ function doPost(e) {
         "Fecha y Hora", 
         "Nombre y Apellidos", 
         "Teléfono (WhatsApp)", 
+        "Correo Electrónico",
         "Habitación de Interés", 
         "Estudios / Profesión", 
         "Año de Curso", 
@@ -39,7 +40,7 @@ function doPost(e) {
       ]);
       
       // Aplicar formato básico a la cabecera (Negrita y fondo gris claro)
-      sheet.getRange("A1:H1").setFontWeight("bold").setBackground("#f3f3f3");
+      sheet.getRange("A1:I1").setFontWeight("bold").setBackground("#f3f3f3");
     }
     
     // Insertar los datos del candidato en una nueva fila
@@ -47,6 +48,7 @@ function doPost(e) {
       data.timestamp || new Date().toISOString(),
       data.nombre || "",
       data.telefono || "",
+      data.email || "",
       data.habitacion || "",
       data.estudios || "",
       data.ano_curso || "-",
