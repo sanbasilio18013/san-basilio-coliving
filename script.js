@@ -272,11 +272,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const habitacion = document.getElementById('habitacion').value;
       const estudios = document.getElementById('estudios').value;
       const solvencia = document.getElementById('solvencia').value;
+      const meses_alquiler = document.getElementById('meses_alquiler') ? document.getElementById('meses_alquiler').value : '';
       const normas = document.getElementById('normas').checked;
       const privacidad = document.getElementById('privacidad').checked;
       const ano_curso = anoCursoSelect ? anoCursoSelect.value : '';
 
-      if (!nombre || !telefono || !habitacion || !estudios || !solvencia || !normas || !privacidad) {
+      if (!nombre || !telefono || !habitacion || !estudios || !solvencia || !meses_alquiler || !normas || !privacidad) {
         showFormError("Por favor, rellene todos los campos obligatorios, acepte las normas de convivencia y la política de privacidad.");
         return;
       }

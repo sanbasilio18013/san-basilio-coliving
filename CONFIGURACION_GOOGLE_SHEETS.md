@@ -34,11 +34,12 @@ function doPost(e) {
         "Habitación de Interés", 
         "Estudios / Profesión", 
         "Año de Curso", 
+        "Meses de Alquiler",
         "Respaldo Financiero"
       ]);
       
       // Aplicar formato básico a la cabecera (Negrita y fondo gris claro)
-      sheet.getRange("A1:G1").setFontWeight("bold").setBackground("#f3f3f3");
+      sheet.getRange("A1:H1").setFontWeight("bold").setBackground("#f3f3f3");
     }
     
     // Insertar los datos del candidato en una nueva fila
@@ -49,6 +50,7 @@ function doPost(e) {
       data.habitacion || "",
       data.estudios || "",
       data.ano_curso || "-",
+      data.meses_alquiler || "",
       data.solvencia || ""
     ]);
     
