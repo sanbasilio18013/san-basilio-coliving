@@ -1149,67 +1149,68 @@
               </div>
             </div>
 
-            <!-- What are you studying? (estudios) -->
-            <div class="flex flex-col gap-1.5">
-              <label for="estudios" class="text-xs font-bold text-[#1d2320]/80 uppercase tracking-wider">¿Qué vas a estudiar? *</label>
-              <div class="relative">
-                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-[#1d2320]/40">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
-                </span>
-                <select id="estudios" name="estudios" required
-                  class="w-full pl-10 pr-10 py-3 rounded-xl border border-[#e8e3d9] bg-[#fdfbf7]/30 text-sm text-[#1d2320] transition-all duration-300 form-input-focus appearance-none cursor-pointer">
-                  <option value="" disabled selected>-- Selecciona estudios --</option>
-                  <option value="Grado Universitario">Grado Universitario</option>
-                  <option value="Máster o Postgrado">Máster o Postgrado</option>
-                  <option value="Oposiciones">Oposiciones</option>
-                  <option value="Prácticas / Otros">Prácticas / Otros</option>
-                </select>
-                <span class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-[#1d2320]/40 pointer-events-none">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-                </span>
+            <!-- Estudios y Año de Curso (Agrupados) -->
+            <div class="flex flex-col gap-6">
+              <!-- What are you studying? (estudios) -->
+              <div class="flex flex-col gap-1.5">
+                <label for="estudios" class="text-xs font-bold text-[#1d2320]/80 uppercase tracking-wider">¿Qué vas a estudiar? *</label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-[#1d2320]/40">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+                  </span>
+                  <select id="estudios" name="estudios" required
+                    class="w-full pl-10 pr-10 py-3 rounded-xl border border-[#e8e3d9] bg-[#fdfbf7]/30 text-sm text-[#1d2320] transition-all duration-300 form-input-focus appearance-none cursor-pointer">
+                    <option value="" disabled selected>-- Selecciona estudios --</option>
+                    <option value="Grado Universitario">Grado Universitario</option>
+                    <option value="Máster o Postgrado">Máster o Postgrado</option>
+                    <option value="Oposiciones">Oposiciones</option>
+                    <option value="Prácticas / Otros">Prácticas / Otros</option>
+                  </select>
+                  <span class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-[#1d2320]/40 pointer-events-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                  </span>
+                </div>
+              </div>
+
+              <!-- Año de curso para Grado Universitario (Dinámico) -->
+              <div id="ano-curso-container" class="hidden flex flex-col gap-1.5 transition-all duration-300 animate-fade-in">
+                <label for="ano_curso" class="text-xs font-bold text-[#1d2320]/80 uppercase tracking-wider">¿Qué año estás cursando? *</label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-[#1d2320]/40">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/></svg>
+                  </span>
+                  <select id="ano_curso" name="ano_curso"
+                    class="w-full pl-10 pr-10 py-3 rounded-xl border border-[#e8e3d9] bg-[#fdfbf7]/30 text-sm text-[#1d2320] transition-all duration-300 form-input-focus appearance-none cursor-pointer">
+                    <option value="" disabled selected>-- Selecciona curso --</option>
+                    <option value="1º Curso">1º Curso</option>
+                    <option value="2º Curso">2º Curso</option>
+                    <option value="3º Curso">3º Curso</option>
+                    <option value="4º Curso o superior">4º Curso o superior</option>
+                  </select>
+                  <span class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-[#1d2320]/40 pointer-events-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <!-- Financial Backing (solvencia) -->
-            <div class="flex flex-col gap-1.5">
-              <label for="solvencia" class="text-xs font-bold text-[#1d2320]/80 uppercase tracking-wider">Respaldo Financiero *</label>
-              <div class="relative">
-                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-[#1d2320]/40">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg>
-                </span>
-                <select id="solvencia" name="solvencia" required
-                  class="w-full pl-10 pr-10 py-3 rounded-xl border border-[#e8e3d9] bg-[#fdfbf7]/30 text-sm text-[#1d2320] transition-all duration-300 form-input-focus appearance-none cursor-pointer">
-                  <option value="" disabled selected>-- Elige una opción --</option>
-                  <option value="Mis padres o tutores con nómina en España">Mis padres o tutores con nómina en España</option>
-                  <option value="Nómina propia">Nómina propia</option>
-                </select>
-                <span class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-[#1d2320]/40 pointer-events-none">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-                </span>
-              </div>
-            </div>
-
-            <!-- Año de curso para Grado Universitario (Dinámico) -->
-            <div id="ano-curso-container" class="hidden flex flex-col gap-1.5 transition-all duration-300 animate-fade-in">
-              <label for="ano_curso" class="text-xs font-bold text-[#1d2320]/80 uppercase tracking-wider">¿Qué año estás cursando? *</label>
-              <div class="relative">
-                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-[#1d2320]/40">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/></svg>
-                </span>
-                <select id="ano_curso" name="ano_curso"
-                  class="w-full pl-10 pr-10 py-3 rounded-xl border border-[#e8e3d9] bg-[#fdfbf7]/30 text-sm text-[#1d2320] transition-all duration-300 form-input-focus appearance-none cursor-pointer">
-                  <option value="" disabled selected>-- Selecciona curso --</option>
-                  <option value="1º Curso">1º Curso</option>
-                  <option value="2º Curso">2º Curso</option>
-                  <option value="3º Curso">3º Curso</option>
-                  <option value="4º Curso o superior">4º Curso o superior</option>
-                </select>
-                <span class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-[#1d2320]/40 pointer-events-none">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-                </span>
-              </div>
+          <!-- Financial Backing (solvencia) - Ocupa ancho completo -->
+          <div class="flex flex-col gap-1.5">
+            <label for="solvencia" class="text-xs font-bold text-[#1d2320]/80 uppercase tracking-wider">Respaldo Financiero *</label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-[#1d2320]/40">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg>
+              </span>
+              <select id="solvencia" name="solvencia" required
+                class="w-full pl-10 pr-10 py-3 rounded-xl border border-[#e8e3d9] bg-[#fdfbf7]/30 text-sm text-[#1d2320] transition-all duration-300 form-input-focus appearance-none cursor-pointer">
+                <option value="" disabled selected>-- Elige una opción --</option>
+                <option value="Mis padres o tutores con nómina en España">Mis padres o tutores con nómina en España</option>
+                <option value="Nómina propia">Nómina propia</option>
+              </select>
+              <span class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-[#1d2320]/40 pointer-events-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
             </div>
           </div>
 
