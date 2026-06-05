@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // URL del script de Google Apps (reemplazable por el cliente)
-  const GOOGLE_SCRIPT_URL = "[PEGA_AQUÍ_LA_URL_DE_TU_GOOGLE_APPS_SCRIPT]";
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxnU042R1UHNdaZi-wE9KzJQuSxaV9Hgwd7bON3FM8E3I4_BjGyKvKjVELIlARMd00B/exec";
 
   if (appForm) {
     appForm.addEventListener('submit', async (e) => {
