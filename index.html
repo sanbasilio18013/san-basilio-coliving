@@ -1095,6 +1095,12 @@
 
         <form id="application-form" class="p-8 sm:p-10 space-y-6">
           
+          <!-- Honeypot Field for Anti-Spam (Option A) -->
+          <div class="hidden" aria-hidden="true">
+            <label for="b_website">Confirmar sitio web (dejar vacío)</label>
+            <input type="text" id="b_website" name="b_website" autocomplete="off" tabindex="-1">
+          </div>
+          
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <!-- Full Name (nombre) -->
             <div class="flex flex-col gap-1.5">
@@ -1381,6 +1387,6 @@
   </div>
 
   <!-- External Script -->
-  <script src="script.js?v=1.0.5"></script>
+  <script src="script.js?v=1.0.6"></script>
 </body>
 </html>

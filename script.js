@@ -249,6 +249,20 @@ document.addEventListener('DOMContentLoaded', () => {
     appForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       
+      // Filtro Anti-Spam (Honeypot)
+      const honeypot = document.getElementById('b_website') ? document.getElementById('b_website').value : '';
+      if (honeypot) {
+        console.warn("Spam detectado (Honeypot relleno).");
+        // Simular éxito silencioso para desalentar al bot
+        setLoadingState(true);
+        setTimeout(() => {
+          setLoadingState(false);
+          showSuccessModal();
+          appForm.reset();
+        }, 1200);
+        return;
+      }
+      
       // Ocultar banners de error previos
       formErrorBanner.classList.add('hidden');
 
