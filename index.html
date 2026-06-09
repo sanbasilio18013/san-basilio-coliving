@@ -1446,7 +1446,35 @@
     </div>
   </div>
 
+  <!-- ================= FLOATING WHATSAPP WIDGET ================= -->
+  <div id="whatsapp-widget" class="fixed bottom-6 right-6 z-40 flex items-center group">
+    <!-- Speech Bubble (Tooltip) -->
+    <div id="whatsapp-tooltip" class="absolute right-20 bg-white text-[#1d2320] text-xs font-bold px-4 py-3 rounded-2xl shadow-xl border border-[#e8e3d9]/60 opacity-0 translate-y-2 pointer-events-none transition-all duration-500 ease-out whitespace-nowrap flex items-center gap-2 after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:left-full after:border-6 after:border-y-transparent after:border-r-transparent after:border-l-white">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+      </span>
+      ¿Tienes alguna duda? ¡Escríbenos!
+    </div>
+    
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/34621335140?text=Hola!%20Tengo%20una%20pregunta%20sobre%20el%20coliving%20San%20Basilio..." 
+       target="_blank" rel="noopener noreferrer" 
+       class="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-white flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 relative group/btn"
+       aria-label="Contactar por WhatsApp">
+      <!-- WhatsApp SVG Icon -->
+      <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.504-5.717-1.464L0 24zm6.59-4.846c1.6.95 3.198 1.451 4.854 1.452 5.435 0 9.859-4.407 9.862-9.813.001-2.617-1.013-5.078-2.86-6.928C16.607 1.913 14.16 1.897 11.54 1.897c-5.436 0-9.86 4.408-9.863 9.815-.001 1.745.462 3.448 1.343 4.965l-.982 3.585 3.673-.964zm10.741-7.753c-.292-.146-1.727-.852-1.993-.948-.266-.096-.46-.144-.652.146-.192.29-.746.948-.914 1.14-.169.19-.337.213-.629.068-.29-.147-1.23-.453-2.341-1.444-.866-.772-1.45-1.725-1.62-2.016-.17-.29-.018-.447.127-.592.13-.13.29-.34.436-.508.145-.17.193-.29.292-.484.097-.193.048-.361-.024-.508-.073-.146-.652-1.573-.893-2.153-.23-.559-.483-.485-.652-.494-.166-.008-.358-.01-.55-.01-.193 0-.507.073-.77.361-.263.29-1.006.983-1.006 2.396 0 1.413 1.03 2.778 1.17 2.972.14.195 2.029 3.1 4.915 4.347.686.297 1.222.474 1.638.607.69.219 1.319.19 1.815.115.55-.083 1.727-.706 1.972-1.39.244-.683.244-1.267.172-1.39-.072-.122-.266-.194-.559-.34z"/>
+      </svg>
+      <!-- Premium breathing notification ring -->
+      <span class="absolute -top-1 -right-1 flex h-4 w-4">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-terracotta opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-4 w-4 bg-brand-terracotta text-[9px] font-bold text-white items-center justify-center font-sans">1</span>
+      </span>
+    </a>
+  </div>
+
   <!-- External Script -->
-  <script src="script.js?v=1.0.8"></script>
+  <script src="script.js?v=1.0.9"></script>
 </body>
 </html>

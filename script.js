@@ -418,4 +418,33 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // 9. Floating WhatsApp Widget Interactive Tooltip
+  const waTooltip = document.getElementById('whatsapp-tooltip');
+  if (waTooltip) {
+    // Show after 3.5 seconds
+    setTimeout(() => {
+      waTooltip.classList.remove('opacity-0', 'translate-y-2', 'pointer-events-none');
+      waTooltip.classList.add('opacity-100', 'translate-y-0');
+      
+      // Auto hide after 8 seconds of visibility
+      setTimeout(() => {
+        waTooltip.classList.remove('opacity-100', 'translate-y-0');
+        waTooltip.classList.add('opacity-0', 'translate-y-2', 'pointer-events-none');
+      }, 8000);
+    }, 3500);
+    
+    // Show again on widget hover, and keep it shown
+    const waWidget = document.getElementById('whatsapp-widget');
+    if (waWidget) {
+      waWidget.addEventListener('mouseenter', () => {
+        waTooltip.classList.remove('opacity-0', 'translate-y-2', 'pointer-events-none');
+        waTooltip.classList.add('opacity-100', 'translate-y-0');
+      });
+      waWidget.addEventListener('mouseleave', () => {
+        waTooltip.classList.remove('opacity-100', 'translate-y-0');
+        waTooltip.classList.add('opacity-0', 'translate-y-2', 'pointer-events-none');
+      });
+    }
+  }
 });
