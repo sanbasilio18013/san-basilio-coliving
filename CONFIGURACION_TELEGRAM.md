@@ -63,3 +63,49 @@ Antes de que tu bot pueda enviarte mensajes por primera vez, Telegram requiere q
 1. Se guardarán los datos en la hoja de cálculo.
 2. Tu bot de Telegram te enviará un mensaje al instante.
 3. El mensaje tendrá un formato limpio y un botón para abrir directamente un chat de WhatsApp con el número del candidato sin tener que guardarlo en la agenda.
+
+---
+
+## 🛠️ Resolución de Problemas: Error de Permisos (UrlFetchApp)
+
+Si al ejecutar el script o enviar el formulario ves un error como:
+`Exception: You do not have permission to call UrlFetchApp.fetch. Required permissions: https://www.googleapis.com/auth/script.external_request`
+
+Sigue estos pasos para solucionarlo:
+
+### 1. Forzar la Autorización desde el Editor
+A veces, Google Apps Script no muestra el diálogo de autorización inicial si el código problemático está dentro de un bloque `try-catch`. Para forzarlo:
+
+1. En tu editor de Apps Script, añade esta función temporal al **final** de tu archivo `Código.gs`:
+   ```javascript
+   function probarTelegram() {
+     Logger.log("Iniciando prueba de Telegram...");
+     var response = UrlFetchApp.fetch("https://api.telegram.org/bot" + TELEGRAM_BOT_TOKEN + "/getMe");
+     Logger.log("Respuesta de Telegram: " + response.getContentText());
+   }
+   ```
+2. Haz clic en el **Disco** (Guardar).
+3. En la barra de herramientas superior, selecciona la función `probarTelegram` en el desplegable y haz clic en **Ejecutar** (Run).
+4. Google **bloqueará la ejecución** y mostrará una ventana flotante de **"Autorización requerida"** (Authorization Required).
+5. Haz clic en **Revisar permisos** (Review permissions).
+6. Selecciona tu cuenta de Google.
+7. Si te sale un aviso de "Google no ha verificado esta aplicación", haz clic en **Configuración avanzada** (abajo a la izquierda) y luego en **Ir a Proyecto sin título (no seguro)**.
+8. Haz clic en **Permitir** (Allow).
+9. La función se ejecutará y deberías ver en el registro: `"Respuesta de Telegram: {"ok":true,...}"`. Esto significa que tanto los permisos como tu token son correctos.
+
+### 2. Verificar el archivo de manifiesto (`appsscript.json`)
+Si al ejecutar `probarTelegram` sigue dando el error de permisos sin mostrar la ventana de autorización:
+
+1. Ve a la **Configuración del proyecto** (icono de engranaje ⚙️ en la barra lateral izquierda de Apps Script).
+2. Marca la casilla **"Mostrar el archivo de manifiesto 'appsscript.json' en el editor"**.
+3. Vuelve al **Editor** (icono de código `<>`) y haz clic en el archivo `appsscript.json` que ahora aparece en la lista.
+4. Asegúrate de que **no** haya una sección llamada `"oauthScopes"` que esté limitando los permisos del script. Si la hay, añade `"https://www.googleapis.com/auth/script.external_request"` a la lista, o directamente elimina la sección `"oauthScopes"` entera para que Google detecte automáticamente los permisos que tu código necesita.
+
+### 3. Crear una nueva versión de la implementación
+Una vez que `probarTelegram` funcione correctamente, debes **actualizar la versión pública de la aplicación web** para que herede estos permisos autorizados:
+
+1. Haz clic en **Implementar** ➡️ **Administrar implementaciones** (*Manage deployments*).
+2. Haz clic en el icono del **Lápiz** (Editar) en tu implementación activa.
+3. En el menú desplegable "Versión", selecciona **Nueva versión** (*New version*).
+4. Haz clic en **Implementar** (*Deploy*).
+

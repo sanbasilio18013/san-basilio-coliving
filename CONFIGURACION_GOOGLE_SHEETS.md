@@ -113,7 +113,19 @@ function sendTelegramNotification(data, fecha) {
     Logger.log("Error al enviar notificación de Telegram: " + err.toString());
   }
 }
+
+// FUNCIÓN DE PRUEBA: Ejecuta esto desde el editor para verificar la conexión y forzar la autorización de Google.
+function probarTelegram() {
+  Logger.log("Iniciando prueba de Telegram...");
+  if (TELEGRAM_BOT_TOKEN === "PEGA_AQUÍ_EL_TOKEN_DEL_BOT" || !TELEGRAM_BOT_TOKEN) {
+    Logger.log("Error: Debes configurar tu token de Telegram en la variable TELEGRAM_BOT_TOKEN");
+    return;
+  }
+  var response = UrlFetchApp.fetch("https://api.telegram.org/bot" + TELEGRAM_BOT_TOKEN + "/getMe");
+  Logger.log("Respuesta de Telegram: " + response.getContentText());
+}
 ```
+
 
 4. Haz clic en el icono del **Disco** (Guardar proyecto) en la barra de herramientas superior del editor de código.
 
