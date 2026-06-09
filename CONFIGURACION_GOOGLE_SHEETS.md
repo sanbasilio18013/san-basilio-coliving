@@ -17,6 +17,11 @@ Esta guía te explica paso a paso cómo conectar el formulario de tu página web
 3. Copia y pega exactamente el siguiente código de abajo:
 
 ```javascript
+// CONFIGURACIÓN DE NOTIFICACIONES DE TELEGRAM (OPCIONAL)
+// Si no deseas usar notificaciones, deja estas variables como están
+var TELEGRAM_BOT_TOKEN = "PEGA_AQUÍ_EL_TOKEN_DEL_BOT"; // Ej: "123456789:ABCdef..."
+var TELEGRAM_CHAT_ID = "PEGA_AQUÍ_EL_CHAT_ID";         // Ej: "987654321" o "-1001234567890"
+
 function doPost(e) {
   try {
     // Obtener la hoja activa
@@ -59,6 +64,11 @@ function doPost(e) {
       data.solvencia || ""
     ]);
     
+    // Enviar notificación a Telegram si está configurado
+    if (TELEGRAM_BOT_TOKEN && TELEGRAM_BOT_TOKEN !== "PEGA_AQUÍ_EL_TOKEN_DEL_BOT" && TELEGRAM_CHAT_ID) {
+      sendTelegramNotification(data, fechaLocal);
+    }
+    
     // Devolver respuesta exitosa (formato JSON)
     return ContentService.createTextOutput(JSON.stringify({ "status": "success" }))
       .setMimeType(ContentService.MimeType.JSON)
@@ -69,6 +79,40 @@ function doPost(e) {
     return ContentService.createTextOutput(JSON.stringify({ "status": "error", "message": error.toString() }))
       .setMimeType(ContentService.MimeType.JSON)
       .setHeader("Access-Control-Allow-Origin", "*");
+  }
+}
+
+function sendTelegramNotification(data, fecha) {
+  try {
+    var message = "🆕 *Nueva Solicitud de Reserva* 🎓\n" +
+                  "-----------------------------------\n" +
+                  "📅 *Fecha:* " + fecha + "\n" +
+                  "👤 *Nombre:* " + (data.nombre || "No indicado") + "\n" +
+                  "📞 *WhatsApp:* " + (data.telefono || "No indicado") + " [💬 Chatear](https://wa.me/" + (data.telefono || "").replace(/\D/g, "") + ")\n" +
+                  "✉️ *Email:* " + (data.email || "No indicado") + "\n" +
+                  "🛏️ *Habitación:* " + (data.habitacion || "No indicado") + "\n" +
+                  "📚 *Estudios:* " + (data.estudios || "No indicado") + (data.ano_curso ? " (" + data.ano_curso + ")" : "") + "\n" +
+                  "⏳ *Duración:* " + (data.meses_alquiler || "No indicado") + "\n" +
+                  "💼 *Solvencia:* " + (data.solvencia || "No indicado") + "\n" +
+                  "-----------------------------------";
+                  
+    var payload = {
+      "chat_id": TELEGRAM_CHAT_ID,
+      "text": message,
+      "parse_mode": "Markdown",
+      "disable_web_page_preview": true
+    };
+    
+    var options = {
+      "method": "post",
+      "contentType": "application/json",
+      "payload": JSON.stringify(payload),
+      "muteHttpExceptions": true
+    };
+    
+    UrlFetchApp.fetch("https://api.telegram.org/bot" + TELEGRAM_BOT_TOKEN + "/sendMessage", options);
+  } catch (err) {
+    Logger.log("Error al enviar notificación de Telegram: " + err.toString());
   }
 }
 ```
