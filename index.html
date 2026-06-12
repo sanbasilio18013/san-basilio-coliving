@@ -280,7 +280,7 @@
         <article class="premium-card flex flex-col bg-white rounded-3xl overflow-hidden border border-[#e8e3d9]/40">
           <!-- Carousel Wrapper -->
           <div class="relative w-full aspect-[4/3] overflow-hidden group/carousel" data-carousel="room-1">
-            <div class="carousel-track flex transition-transform duration-500 ease-in-out h-full w-full">
+            <div class="carousel-track flex transition-transform duration-500 ease-in-out h-full w-full opacity-60">
               <!-- Slides de Habitación 1 -->
               <div class="carousel-slide w-full shrink-0 h-full relative">
                 <img src="images/hab1_1.jpg" alt="Habitación 1 - Foto 1" class="w-full h-full object-cover">
@@ -321,15 +321,23 @@
             </div>
 
             <!-- Badges Overlay -->
-            <div class="absolute top-4 left-4 flex flex-col gap-2">
-              <span class="bg-[#1d2320] text-white px-4 py-1.5 rounded-full text-xs font-bold shadow-md w-max">
+            <div class="absolute top-4 left-4 flex flex-col gap-2 z-15">
+              <span class="bg-[#1d2320]/60 text-white/80 px-4 py-1.5 rounded-full text-xs font-bold shadow-md w-max backdrop-blur-xs">
                 A estrenar
+              </span>
+            </div>
+
+            <!-- Overlay "Reservada" -->
+            <div class="absolute inset-0 bg-[#1d2320]/30 backdrop-blur-xs flex items-center justify-center z-15 pointer-events-none">
+              <span class="bg-white/95 text-[#1d2320] px-5 py-2.5 rounded-full text-xs font-extrabold tracking-widest uppercase shadow-xl border border-[#e8e3d9]/40 flex items-center gap-1.5 animate-pulse-soft">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c76a53" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Reservada
               </span>
             </div>
           </div>
             
           <!-- Room Card Info -->
-          <div class="p-6 sm:p-8 flex flex-col flex-grow">
+          <div class="p-6 sm:p-8 flex flex-col flex-grow opacity-70">
             <div class="flex items-start justify-between mb-4">
               <div>
                 <h3 class="font-serif text-xl sm:text-2xl font-bold text-[#1d2320]">Habitación 1: Estándar Exterior</h3>
@@ -366,8 +374,8 @@
             </ul>
 
             <!-- Action -->
-            <button class="select-room-btn w-full py-3.5 px-6 rounded-xl bg-[#ebede9] hover:bg-[#5f6f5e] hover:text-white text-[#5f6f5e] text-sm font-bold tracking-wide transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer" data-room-value="Habitación 1: Estándar Exterior">
-              Reservar Habitación 1 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <button class="w-full py-3.5 px-6 rounded-xl bg-[#ebede9] text-[#1d2320]/40 text-sm font-bold tracking-wide flex items-center justify-center gap-2 cursor-not-allowed" disabled>
+              Habitación Reservada <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             </button>
           </div>
         </article>
@@ -582,7 +590,7 @@
         <article class="premium-card flex flex-col bg-white rounded-3xl overflow-hidden border border-[#e8e3d9]/40">
           <!-- Carousel Wrapper -->
           <div class="relative w-full aspect-[4/3] overflow-hidden group/carousel" data-carousel="room-4">
-            <div class="carousel-track flex transition-transform duration-500 ease-in-out h-full w-full">
+            <div class="carousel-track flex transition-transform duration-500 ease-in-out h-full w-full opacity-60">
               <!-- Slides de Habitación 4 -->
               <div class="carousel-slide w-full shrink-0 h-full relative">
                 <img src="images/hab4_1.jpg" alt="Habitación 4 - Foto 1" class="w-full h-full object-cover">
@@ -627,14 +635,22 @@
             </div>
 
             <!-- Price Tag Overlay -->
-            <div class="absolute top-4 left-4 bg-[#c76a53] text-white px-4 py-1.5 rounded-full text-xs font-bold shadow-md flex items-center gap-1">
+            <div class="absolute top-4 left-4 bg-[#c76a53]/60 text-white/80 px-4 py-1.5 rounded-full text-xs font-bold shadow-md flex items-center gap-1 z-15 backdrop-blur-xs">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/></svg>
               La joya del coliving
+            </div>
+
+            <!-- Overlay "Reservada" -->
+            <div class="absolute inset-0 bg-[#1d2320]/30 backdrop-blur-xs flex items-center justify-center z-15 pointer-events-none">
+              <span class="bg-white/95 text-[#1d2320] px-5 py-2.5 rounded-full text-xs font-extrabold tracking-widest uppercase shadow-xl border border-[#e8e3d9]/40 flex items-center gap-1.5 animate-pulse-soft">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c76a53" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Reservada
+              </span>
             </div>
           </div>
 
           <!-- Room Card Info -->
-          <div class="p-6 sm:p-8 flex flex-col flex-grow">
+          <div class="p-6 sm:p-8 flex flex-col flex-grow opacity-70">
             <div class="flex items-start justify-between mb-4">
               <div>
                 <h3 class="font-serif text-xl sm:text-2xl font-bold text-[#1d2320]">Habitación 4: Master Suite</h3>
@@ -674,8 +690,8 @@
             </ul>
 
             <!-- Action -->
-            <button class="select-room-btn w-full py-3.5 px-6 rounded-xl bg-[#5f6f5e] text-white hover:bg-[#455244] text-sm font-bold tracking-wide transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-md shadow-[#5f6f5e]/10" data-room-value="Habitación 4: Master Suite con Baño Privado">
-              Reservar Suite 4 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" x2="19" y1="12" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <button class="w-full py-3.5 px-6 rounded-xl bg-[#ebede9] text-[#1d2320]/40 text-sm font-bold tracking-wide flex items-center justify-center gap-2 cursor-not-allowed" disabled>
+              Habitación Reservada <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             </button>
           </div>
         </article>
@@ -1174,10 +1190,10 @@
                 <select id="habitacion" name="habitacion" required
                   class="w-full pl-10 pr-10 py-3 rounded-xl border border-[#e8e3d9] bg-[#fdfbf7]/30 text-sm text-[#1d2320] transition-all duration-300 form-input-focus appearance-none cursor-pointer">
                   <option value="" disabled selected>-- Elige una opción --</option>
-                  <option value="Habitación 1: Estándar Exterior">Habitación 1: Estándar Exterior (300€)</option>
+                  <option value="Habitación 1: Estándar Exterior" disabled>Habitación 1: Estándar Exterior (300€) - [RESERVADA]</option>
                   <option value="Habitación 2: Confort">Habitación 2: Confort (330€)</option>
                   <option value="Habitación 3: Confort Plus">Habitación 3: Confort Plus (330€)</option>
-                  <option value="Habitación 4: Master Suite con Baño Privado">Habitación 4: Master Suite con Baño Privado (380€)</option>
+                  <option value="Habitación 4: Master Suite con Baño Privado" disabled>Habitación 4: Master Suite con Baño Privado (380€) - [RESERVADA]</option>
                 </select>
                 <span class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-[#1d2320]/40 pointer-events-none">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
@@ -1475,6 +1491,6 @@
   </div>
 
   <!-- External Script -->
-  <script src="script.js?v=1.0.9"></script>
+  <script src="script.js?v=1.1.0"></script>
 </body>
 </html>
